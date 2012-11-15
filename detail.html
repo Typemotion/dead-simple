@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ entry.title }}{% endblock %}
+
+{% block site_name %}{{ blog.name }}{% endblock %}
+
+{% block main %}
+    <h1>{{ entry.title }}</h2>
+    <p>{{ entry.pretty_date }}</p>
+    {{ entry.rendered }}
+    <p class="permalink"><a href="{{ entry.get_absolute_url() }}">#permalink</a></p>
+    {% if blog.disqus %}
+        <div id="disqus_thread"></div>
+    {% endif %}
+{% endblock %}

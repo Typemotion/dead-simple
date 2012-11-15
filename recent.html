@@ -1,0 +1,8 @@
+<h3>Recently</h3>
+    {% for entry in recent_entries[0:4] %}
+        <div class="three columns">
+            <a href="{{ entry.get_absolute_url() }}">{{ entry.title|striptags }}</a>
+        </div>
+    {% endfor %}
+    <a href="/archives.html">More</a>
+

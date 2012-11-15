@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block site_name %}{{ blog.name }}{% endblock %}
+
+{% block main %}
+    {% for entry in entries %}
+        <div class="entry">
+            <h1><a href="{{ entry.get_absolute_url() }}">{{ entry.title }}</a></h1>
+            <p class="date">{{ entry.pretty_date }}</p>
+            <div class="entry_content">
+                {{ entry.rendered|striptags|truncate(length=500, end='...') }}
+            </div>
+            <p class="permalink"><a href="{{ entry.get_absolute_url() }}">Read More</a></p>
+            <hr />
+        </div>
+    {% endfor %}
+{% endblock %}
